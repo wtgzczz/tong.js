@@ -21,6 +21,29 @@
 			}
 			return obj;
 		}
+		
+	var util = {};
+	tong.util = util;
+	/*传入的字符串是否重复*/
+	util.isDuplicate=function(){
+		 var array = Array.prototype.slice.call(arguments);  //arguments为数组
+             array.sort(compare);
+         var result;
+         var compare = function(value1,value2){           //按从小到大的顺序排
+                return value1-value2;
+                }      
+            for(var i = 0;i< array.length-1;i++){
+                        if(array[i] == array[i+1]){
+                                result = true;
+                                break;
+                        }
+                        else{
+                                result = false;
+                        }
+                            }
+                    return result;
+            }	
+		
 		/*数组方法*/
 	var arr = {};
 	tong.array = arr;
