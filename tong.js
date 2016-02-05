@@ -106,7 +106,7 @@
 						arguments.callee(arr);
 				}
 			}
-		});	
+		})();	
 		/*删除指定元素*/
 	arr.remove = function(arr, content) {
 			for (var i = 0, len = arr.length; i < len; i++) {
