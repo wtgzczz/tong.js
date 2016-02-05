@@ -208,7 +208,11 @@
 	/*dom操作*/
 	var dom = {};
 	tong.dom = dom;
-
+        
+        /*判断给定值是否是DOM元素*/
+        dom.isElementDom = function(obj){
+        	return !!(obj && obj.nodeType == 1);
+        }
 	/*判断元素是否有该类名*/
 	dom.hasClass = function(ele, className) {
 			if (!ele.className) {
