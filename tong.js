@@ -70,6 +70,43 @@
 			}
 			return newArr;
 		}
+		/*山形数组去重*/
+	arr.uniqueMountain = (function(){
+	    var p,
+		q,
+		len=arr.length,
+		judgeObj = {};
+		p=0;
+		q=len-1;
+		return function print(arr){
+			 if(p>len || q<0) return;
+				if(arr[p]<arr[q]){
+					if(!judgeObj[arr[p]]){
+						console.log(arr[p]);
+						judgeObj[arr[p]] = true;
+					}
+						p++;
+						arguments.callee(arr);
+				}else if(arr[p]>arr[q]){
+					if(!judgeObj[arr[q]]){
+						console.log(arr[q]);
+						judgeObj[arr[q]] = true;
+					}
+						q--;
+						arguments.callee(arr);
+					
+				}else{
+					if(!judgeObj[arr[q]] && !judgeObj[arr[p]]){
+						console.log(arr[p]);
+						judgeObj[arr[p]] = true;
+						judgeObj[arr[q]] = true;
+					}
+						p++;
+						q--;
+						arguments.callee(arr);
+				}
+			}
+		});	
 		/*删除指定元素*/
 	arr.remove = function(arr, content) {
 			for (var i = 0, len = arr.length; i < len; i++) {
