@@ -344,7 +344,7 @@
 		if (type.toUpperCase() === 'GET') {
 			for (var i in data) {
 				var item = data[i];
-				str += i + '=' + JSON.stringify(item) + '&';
+				str += encodeURIComponent(i) + '=' + encodeURIComponent(JSON.stringify(item)) + '&';
 			}
 			str = str.substring(0, str.length - 1);
 			xhr.open("GET", url + str, true);
