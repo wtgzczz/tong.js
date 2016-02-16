@@ -357,4 +357,22 @@
 			xhr.send(JSON.stringify(data));
 		}
 	}
+	
+		/*url操作*/
+		var url = {};
+		tong.url = url;
+		
+		url.getUrlString = function(){
+		    var queryStr = location.search > 1 ? location.search.substring(1):''; 
+			var args = {};
+			var items = queryStr.split('&');    
+			var item,key,value,i,len =items.length;
+			for(i = 0;i<len;i++){
+				item = items[i].split('=');
+				key = decodeURIComponent(item[0]);
+				value = decodeURIComponent(item[1];
+				args[key] = value;	
+			}
+			return args;
+		}
 })();
