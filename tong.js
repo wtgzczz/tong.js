@@ -180,6 +180,15 @@
 				ele["on" + type] = handler;
 			}
 		}
+	eventUtil.removeHandler = function(ele,type,handle) {
+			if(elem.removeEventListener){
+				elem.removeEventListener(type,handler,false);
+			}else if(elem.detachEvent){
+				elem.detachEvent("on"+type,handler);
+			}else{
+				elem["on"+type]=null;
+			}
+	}	
 		/*获得事件对象*/
 	eventUtil.getEvent = function(event) {
 			return event ? event : window.event;
