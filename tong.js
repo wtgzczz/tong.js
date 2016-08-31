@@ -1,4 +1,16 @@
-(function() {
+(function(name,definition){
+	var hasDefine = typeof define == "function",
+	hasModuleExports = typeof module != "undefined" && module.exports;
+	
+	//当存在define、module函数时候，包装为模块
+	if(hasDefine){
+	define(name,definition);
+	}else if(hasModuleExports){
+	module.exports = definition();
+	}else{
+	this[name] = definition();
+	}
+})("Tong",function() {
 	var root = window,
 		tong = {}; //生成一个命名空间tong
 	root.tong = tong; //把命名空间挂载到window下，以便外部访问
@@ -379,9 +391,9 @@
 			for(i = 0;i<len;i++){
 				item = items[i].split('=');
 				key = decodeURIComponent(item[0]);
-				value = decodeURIComponent(item[1];
+				value = decodeURIComponent(item[1]);
 				args[key] = value;	
 			}
 			return args;
 		}
-})();
+});
