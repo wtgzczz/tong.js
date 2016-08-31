@@ -54,7 +54,35 @@
                         }
                             }
                     return result;
-            }	
+            }
+            
+            /*产生随机数的数组
+            *@param Max:最大范围的数
+            *@param len: 数组长度
+            */
+        util.getRandom = function(Max,len){
+	        var temp = [];
+	
+	        while(temp.length<len){
+	            //设置标志检测产生的随机数是否相等
+	            var flag = true;
+	            //向上取整1-Max
+	            var r = Math.ceil(Math.random()*Max);
+	            //第一次产生的随机数不进入循环
+	            for(var i = 0;i < temp.length;i++){
+	                if(temp[i] == r){
+	                    flag = false;
+	                }else{
+	                    flag = true;
+	                }
+	            }
+	
+	            if(flag){
+	                temp[temp.length]  = r;
+	            }
+	        }
+	        return temp;
+	    }    
 		
 		/*数组方法*/
 	var arr = {};
