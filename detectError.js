@@ -15,7 +15,7 @@ function detect(targetUrl) {
 			}
 			return key + '=' + encodeURIComponent(value === null ? '' : String(value));
 		};
-
+		
 		function toQueryString(obj) {
 			var ret = [];
 			for (var key in obj) {
