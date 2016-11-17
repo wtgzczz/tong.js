@@ -3,7 +3,6 @@ function VaildURL(sUrl)
 	return (/^(https?:\/\/)?[\w\-.]+\.(qq|taotao)\.com($|\/|\\)/i).test(sUrl)||(/^[\w][\w\/\.\-_%]+$/i).test(sUrl)||(/^[\/\\][^\/\\]/i).test(sUrl) ? true : false;
 }
 
-
 //html正文编码：对需要出现在HTML正文里(除了HTML属性外)的不信任输入进行编码
 function HtmlEncode(sStr)
 {
